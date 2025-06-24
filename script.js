@@ -5,8 +5,8 @@ const fileLink = "https://www.learningcontainer.com/wp-content/uploads/2020/05/s
 
 
 const initTimer = () => {
-    if(downloadBtn.classList.contains("disable-timer")){
-        return (location.href=fileLink);
+    if (downloadBtn.classList.contains("disable-timer")) {
+        return (location.href = fileLink);
     };
     let timer = downloadBtn.dataset.timer;
 
