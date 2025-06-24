@@ -2,12 +2,22 @@ const downloadBtn = document.querySelector(".download-btn");
 
 const fileLink = "https://drive.google.com/file/d/1LDRlyZaZTF-bxHjBDEiL2obMxYHtf3YT/view?usp=sharing";
 
-const initTimer=()=>{
- let timer=downloadBtn.dataset.timer;
+const initTimer = () => {
+    let timer = downloadBtn.dataset.timer;
 
- downloadBtn.classList.add("timer");
- 
- downloadBtn.innerHTML=`Your file will download in <b>${timer}</b> seconds`;
+    downloadBtn.classList.add("timer");
+
+    downloadBtn.innerHTML = `Your file will download in <b>${timer}</b> seconds`;
+
+
+    const initCounter = setInterval(() => {
+        if (timer > 0) {
+            timer--;
+            return downloadBtn.innerHTML = `Your file will download in <b>${timer}</b> seconds`;
+        }
+        clearInterval(initCounter);
+    }, 1000);
+
 }
 
-downloadBtn.addEventListener("click",initTimer);
+downloadBtn.addEventListener("click", initTimer);

@@ -40,4 +40,9 @@ body{
     box-shadow: none;
     font-size: 1.6rem;
     pointer-events: none;
+    transition: none;
+}
+.download-btn.timer b{
+    color: #4a98f7;
+    padding: 0 8px;
 }
