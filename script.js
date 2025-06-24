@@ -1,8 +1,13 @@
 const downloadBtn = document.querySelector(".download-btn");
+const fileLink = "https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-zip-file.zip";
 
-const fileLink = "https://drive.google.com/file/d/1LDRlyZaZTF-bxHjBDEiL2obMxYHtf3YT/view?usp=sharing";
+
+
 
 const initTimer = () => {
+    if(downloadBtn.classList.contains("disable-timer")){
+        return (location.href=fileLink);
+    };
     let timer = downloadBtn.dataset.timer;
 
     downloadBtn.classList.add("timer");
@@ -16,6 +21,20 @@ const initTimer = () => {
             return downloadBtn.innerHTML = `Your file will download in <b>${timer}</b> seconds`;
         }
         clearInterval(initCounter);
+        location.href = fileLink;
+        downloadBtn.textContent = "Your file is downloading...";
+
+        setTimeout(() => {
+            downloadBtn.classList.replace("timer", "disable-timer");
+            downloadBtn.innerHTML = `
+          
+           <i class="fa-solid fa-download icon"></i>
+           <span class="text">Download Again</span>
+
+
+         `
+        }, 3000)
+
     }, 1000);
 
 }
